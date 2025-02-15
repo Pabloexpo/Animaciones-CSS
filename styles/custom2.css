@@ -5,33 +5,41 @@
 
 
 ul {
-    text-align: left;
     list-style-type: none;
+    text-align: left;
 }
 
 li {
     margin-left: 1em;
-    
+    ;
 }
-.borde-col{
+
+li:hover {
+    animation: cambioPesoLi 2.5s infinite;
+}
+
+.borde-col {
     border: 0.5px solid black;
     animation: aparicion 2s ease-in-out;
-    
+
 }
-.paquete{
+
+.paquete {
     font-size: 14px;
-    color:  #660fd8;
+    color: #660fd8;
     text-transform: uppercase;
     letter-spacing: 0.1em;
     font-weight: 700;
     line-height: 20px;
     margin: 0;
 }
-.nombre_paquete{
+
+.nombre_paquete {
     color: #f73155;
     margin: 0;
 }
-.generic_price_btn > a {
+
+.generic_price_btn>a {
     color: #f73155;
     background-color: white;
     margin-bottom: 1em;
@@ -42,103 +50,181 @@ li {
 
 .fondo_gris {
     background-color: rgba(126, 126, 122, 0.295);
+    background-image: url(img/fondo.png);
+    background-position: center center;
+    max-height: 60em
 }
+
 .fondo_gris:hover .bola,
 .fondo_gris:hover .bola2,
 .fondo_gris:hover .bola3 {
     animation: bolas-generadas 2s ease-in-out infinite;
 }
 
-.borde-col:hover{
+.borde-col:hover {
     border: 1px solid #f73155;
 
 }
-.bola{
+
+.bola {
     width: 30px;
     height: 30px;
     border-radius: 15px;
     background-color: white;
-    transform: translate(50px,400px);
+    transform: translate(50px, 400px);
     margin: 0;
     padding: 0;
-    opacity:0;
-    transition: opacity 0.5s ease-in-out;
-    
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+
 }
-.bola2{
+
+.bola img,
+.bola2 img,
+.bola3 img {
+    width: 80%;
+}
+
+.bola2 {
     width: 30px;
     height: 30px;
     border-radius: 15px;
     background-color: white;
-    transform: translate(200px,180px);
+    transform: translate(200px, 180px);
     margin: 0;
     padding: 0;
-    opacity:0;
-    transition: opacity 0.5s ease-in-out;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
 }
-.bola3{
+
+.bola3 {
     width: 30px;
     height: 30px;
     border-radius: 15px;
     background-color: white;
-    transform: translate(50px,10px);
+    transform: translate(50px, 10px);
     margin: 0;
     padding: 0;
-    opacity:0;
-    transition: opacity 0.5s ease-in-out;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
 }
-/* Vamos a hacer que al hacer hover en los botones, los colores de estos se contrapongan en una transiciñon suave */
-.generic_price_btn > a:hover{
+
+.price {
+    max-width: 80%;
+}
+
+/* vamos a provocar que al hacer hover sobre las caracteristicas de cada una de las ofertas, el peso de la letra aumente, que le de importancia a lo que el usuario está viendo. Como si el li tuviera vida, respirase*/
+@keyframes cambioPesoLi {
+    0% {
+        font-weight: 400;
+    }
+
+    50% {
+        font-weight: 700;
+    }
+
+    100% {
+        font-weight: 400;
+    }
+}
+
+/* Vamos a hacer que al hacer hover en los botones, los colores de estos se contrapongan en una transicion suave */
+.generic_price_btn>a:hover {
     background-color: #f73155;
     color: white;
     margin-bottom: 1em;
+    box-shadow: 0 40px 80px (0, 0, 0.2);
+    animation: cambio-color-boton 3s ease-in-out infinite;
 }
-.titulo{
-    animation: aparicion-titulo 1.5s ease-in-out;
+
+footer, .titulo, .head {
+    animation: aparicion-titulo 2s ease-in-out;
 }
+
+@keyframes cambio-color-boton {
+    0%{
+        background-color: white;
+        color: #f73155;
+    }
+    50% {
+        background-color: #f73155;
+        color: white;
+    }
+
+
+    100% {
+
+        background-color: white;
+        color: #f73155;
+
+    }
+}
+
 /* Ahora vamos a probar una transicion que nos va a traer las tablas desde una posición que no se ve en pantalla */
 @keyframes aparicion {
-    0%{
+    0% {
         transform: translateY(-900px);
     }
-    80%{
+
+    80% {
         transform: translateY(0px);
     }
-    90%{
+
+    90% {
         transform: translateY(-10px);
     }
-    100%{
+
+    100% {
         transform: translateY(0px);
     }
 }
+
 /* Pero esto nos provoca el problema de que se solapa con el título del ejercicio, por lo que vamos a hacer otra transición que vaya descubriéndonos el título en ese mismo lapso de tiempo */
 @keyframes aparicion-titulo {
-    0%{
+    0% {
         opacity: 0;
     }
-    70%{
-      opacity: 0;
+
+    70% {
+        opacity: 0;
     }
-    100%{
+
+    100% {
         opacity: 1;
     }
 }
+
 /* hacemos una animacion que vaya mostrando de manera sutil las bolas, que vayan apareciendo y desapareciendo mientras se hace hover, lo que pretendo hacer es que esas bolas aparezcan y se muevan en dirección tanto a la descipción del producto como el precio, atrayendo la vista del cliente a esos dos elementos, que lo vea atractivo  */
-@keyframes bolas-generadas{
-    0%{
+@keyframes bolas-generadas {
+    0% {
         opacity: 0;
         transform: translate(20px, 20px);
     }
-    100%{
+
+    100% {
         opacity: 1;
     }
+}
+/* Aplicamos una transición que suavezca agrandar el tamaño de toda la tabla al hacer :hover */
+@keyframes agrandar-tabla {
+    0%{
+        transform: scale(1, 1);
+    }
+    100%{
+       transform: scale(1.1, 1.1); 
+    }
+}
+
+#generic_price_table .generic_content:hover{
+    animation: agrandar-tabla 1s ease-in-out both
 }
 
 #generic_price_table .generic_content {
     overflow: hidden;
     position: relative;
     text-align: center;
-    
+    width: 95%;
+
 }
 
 #generic_price_table .generic_content .generic_head_price {
@@ -171,6 +257,7 @@ li {
 
 #generic_price_table .generic_content .generic_head_price .generic_price_tag {
     padding: 0 0 20px;
+    min-height: 40%;
 }
 
 #generic_price_table .generic_content .generic_head_price .generic_price_tag .price {
