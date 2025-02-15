@@ -1,0 +1,258 @@
+/*PRICE BODY CODE START*/
+
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
+
+
+
+ul {
+    text-align: left;
+    list-style-type: none;
+}
+
+li {
+    margin-left: 1em;
+    
+}
+.borde-col{
+    border: 0.5px solid black;
+    animation: aparicion 2s ease-in-out;
+    
+}
+.paquete{
+    font-size: 14px;
+    color:  #660fd8;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 700;
+    line-height: 20px;
+    margin: 0;
+}
+.nombre_paquete{
+    color: #f73155;
+    margin: 0;
+}
+.generic_price_btn > a {
+    color: #f73155;
+    background-color: white;
+    margin-bottom: 1em;
+    transition: all 1s;
+
+}
+
+
+.fondo_gris {
+    background-color: rgba(126, 126, 122, 0.295);
+}
+.fondo_gris:hover .bola,
+.fondo_gris:hover .bola2,
+.fondo_gris:hover .bola3 {
+    animation: bolas-generadas 2s ease-in-out infinite;
+}
+
+.borde-col:hover{
+    border: 1px solid #f73155;
+
+}
+.bola{
+    width: 30px;
+    height: 30px;
+    border-radius: 15px;
+    background-color: white;
+    transform: translate(50px,400px);
+    margin: 0;
+    padding: 0;
+    opacity:0;
+    transition: opacity 0.5s ease-in-out;
+    
+}
+.bola2{
+    width: 30px;
+    height: 30px;
+    border-radius: 15px;
+    background-color: white;
+    transform: translate(200px,180px);
+    margin: 0;
+    padding: 0;
+    opacity:0;
+    transition: opacity 0.5s ease-in-out;
+}
+.bola3{
+    width: 30px;
+    height: 30px;
+    border-radius: 15px;
+    background-color: white;
+    transform: translate(50px,10px);
+    margin: 0;
+    padding: 0;
+    opacity:0;
+    transition: opacity 0.5s ease-in-out;
+}
+/* Vamos a hacer que al hacer hover en los botones, los colores de estos se contrapongan en una transiciñon suave */
+.generic_price_btn > a:hover{
+    background-color: #f73155;
+    color: white;
+    margin-bottom: 1em;
+}
+.titulo{
+    animation: aparicion-titulo 1.5s ease-in-out;
+}
+/* Ahora vamos a probar una transicion que nos va a traer las tablas desde una posición que no se ve en pantalla */
+@keyframes aparicion {
+    0%{
+        transform: translateY(-900px);
+    }
+    80%{
+        transform: translateY(0px);
+    }
+    90%{
+        transform: translateY(-10px);
+    }
+    100%{
+        transform: translateY(0px);
+    }
+}
+/* Pero esto nos provoca el problema de que se solapa con el título del ejercicio, por lo que vamos a hacer otra transición que vaya descubriéndonos el título en ese mismo lapso de tiempo */
+@keyframes aparicion-titulo {
+    0%{
+        opacity: 0;
+    }
+    70%{
+      opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+/* hacemos una animacion que vaya mostrando de manera sutil las bolas, que vayan apareciendo y desapareciendo mientras se hace hover, lo que pretendo hacer es que esas bolas aparezcan y se muevan en dirección tanto a la descipción del producto como el precio, atrayendo la vista del cliente a esos dos elementos, que lo vea atractivo  */
+@keyframes bolas-generadas{
+    0%{
+        opacity: 0;
+        transform: translate(20px, 20px);
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+#generic_price_table .generic_content {
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+    
+}
+
+#generic_price_table .generic_content .generic_head_price {
+    margin: 0 0 20px 0;
+}
+
+#generic_price_table .generic_content .generic_head_price .generic_head_content {
+    margin: 0 0 50px 0;
+}
+
+#generic_price_table .generic_content .generic_head_price .generic_head_content .head_bg {
+    border-style: solid;
+    border-width: 90px 1411px 23px 399px;
+    position: absolute;
+}
+
+#generic_price_table .generic_content .generic_head_price .generic_head_content .head {
+    padding-top: 40px;
+    position: relative;
+    z-index: 1;
+}
+
+#generic_price_table .generic_content .generic_head_price .generic_head_content .head span {
+    font-family: 'Manrope', Courier, monospace, sans-serif;
+    font-size: 28px;
+    font-weight: 800;
+    margin: 0;
+    padding: 0;
+}
+
+#generic_price_table .generic_content .generic_head_price .generic_price_tag {
+    padding: 0 0 20px;
+}
+
+#generic_price_table .generic_content .generic_head_price .generic_price_tag .price {
+    display: block;
+}
+
+#generic_price_table .generic_content .generic_head_price .generic_price_tag .price .sign {
+    display: inline-block;
+    font-family: 'Manrope', Courier, monospace, sans-serif;
+    font-size: 28px;
+    font-weight: 400;
+    vertical-align: middle;
+}
+
+#generic_price_table .generic_content .generic_head_price .generic_price_tag .price .currency {
+    /* Insertamos nuestra propia fuente de letra */
+    font-family: 'Manrope', Courier, monospace, sans-serif;
+    font-size: 60px;
+    font-weight: 300;
+    letter-spacing: -2px;
+    line-height: 60px;
+    padding: 0;
+    vertical-align: middle;
+}
+
+#generic_price_table .generic_content .generic_head_price .generic_price_tag .price .cent {
+    display: inline-block;
+    font-family: 'Manrope', Courier, monospace, sans-serif;
+    font-size: 24px;
+    font-weight: 400;
+    vertical-align: bottom;
+}
+
+#generic_price_table .generic_content .generic_head_price .generic_price_tag .month {
+    font-family: 'Manrope', Courier, monospace, sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    letter-spacing: 3px;
+    vertical-align: bottom;
+}
+
+#generic_price_table .generic_content .generic_feature_list ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#generic_price_table .generic_content .generic_feature_list ul li {
+    font-family: 'Manrope', Courier, monospace, sans-serif;
+    font-size: 18px;
+    padding: 15px 0;
+    transition: all 0.3s ease-in-out 0s;
+}
+
+#generic_price_table .generic_content .generic_feature_list ul li:hover {
+    transition: all 0.3s ease-in-out 0s;
+    -moz-transition: all 0.3s ease-in-out 0s;
+    -ms-transition: all 0.3s ease-in-out 0s;
+    -o-transition: all 0.3s ease-in-out 0s;
+    -webkit-transition: all 0.3s ease-in-out 0s;
+
+}
+
+#generic_price_table .generic_content .generic_feature_list ul li .fa {
+    padding: 0 10px;
+}
+
+#generic_price_table .generic_content .generic_price_btn {
+    margin: 20px 0 32px;
+}
+
+#generic_price_table .generic_content .generic_price_btn a {
+    border-radius: 50px;
+    -moz-border-radius: 50px;
+    -ms-border-radius: 50px;
+    -o-border-radius: 50px;
+    -webkit-border-radius: 50px;
+    display: inline-block;
+    font-family: 'Manrope', Courier, monospace, sans-serif;
+    font-size: 18px;
+    outline: medium none;
+    padding: 12px 30px;
+    text-decoration: none;
+    text-transform: uppercase;
+}
